@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_inventory_form_inherit_date" model="ir.ui.view">
+            <field name="name">stock.inventory.form</field>
+            <field name="model">stock.inventory</field>
+            <field name="inherit_id" ref="stock.view_inventory_form"/>
+            <field name="arch" type="xml">
+                <field name="date" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','in',('done'))]}</attribute>
+                </field>
+            </field>
+        </record>
+        
+        <record id="view_move_picking_tree_date_adjustment" model="ir.ui.view">
+            <field name="name">stock.move.date_adjustment.form</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_picking_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='product_uom']" position="after">
+                    <field name="date_adjustment" invisible="0"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="view_move_picking_form_inherit_date_adjustment" model="ir.ui.view">
+            <field name="name">stock.move.date_adjustment.form</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/group[2]/group" position="inside">
+                    <field name="date_adjustment" invisible="0"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="view_move_line_form_inherit_date_adjustment" model="ir.ui.view">
+            <field name="name">stock.move.line.date_adjustment.form</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_move_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date']" position="after">
+                    <field name="date_adjustment" />
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="view_move_form_inherit_date_adjustment" model="ir.ui.view">
+            <field name="name">stock.move.date_adjustment.form</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date']" position="after">
+                    <field name="date_adjustment" />
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>
