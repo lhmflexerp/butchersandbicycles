@@ -1,0 +1,4 @@
+[submodule "alyngsoe/FlexERP-Test1"]
+	path = alyngsoe/FlexERP-Test1
+	url = git@github.com:alyngsoe/FlexERP-Test1.git
+	branch = master
