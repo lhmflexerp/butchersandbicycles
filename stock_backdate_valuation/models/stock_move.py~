@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+
+import datetime
+from openerp import models, fields, api
+
+class StockMove(models.Model):
+    _inherit = 'stock.move'
+
+    @api.multi
+    @api.depends('picking_id.date_done', 'date')
+    def compute_back_date(self):
+        for rec in self:
+            #if rec.picking_id.date_done:
+            #    rec.back_date = rec.picking_id.date_done
+            if rec.picking_id.back_date:
+                rec.back_date = rec.picking_id.back_date
+            else:
+                rec.back_date = rec.date
+
+    back_date = fields.Datetime(
+        string='Back Date',
+        compute='compute_back_date',
+        store=True
+    )
+
+class StockPick(models.Model):
+    _inherit = 'stock.picking'
+
+    @api.multi
+    def action_done(self):
+        res = super(StockPick, self).action_done()
+        for pick in self:
+            if pick.back_date:
+                pick.date_done = pick.back_date
+                print(":::")
+
+
+    back_date = fields.Datetime(
+        string='Back Date',
+    )
