@@ -2,10 +2,10 @@
 
 {
     'name' : 'Stock Back Date Valuation ',
-    'version' : '1.0',
+    'version' : '1.1',
     'category': 'Hidden',
-    'author': 'Alex',
-    'website': 'www.odoo.com',
+    'author': 'FlexERP',
+    'website': 'www.flexerp.dk',
     'description': """
 Menu Path: Inventory/Reporting/Inventory.
 For Delivery Validating / Incoming receipts:
