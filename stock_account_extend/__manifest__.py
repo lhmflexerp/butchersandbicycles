@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
     'name' : 'Stock Account Extend',
-    'version' : '1.0',
+    'version' : '1.1',
     'category': 'Warehouse Management',
     'license': 'Other proprietary',
-    'author': 'Alex Lyngsoe',
-    'website': 'www.odoo.com',
+    'author': 'FlexERP',
+    'website': 'www.flexerp.dk',
     'summary': 'Stock Accounting',
     'description' : '''
     In Journal Entries, we would like to have the date of transfer in the date field just like the
