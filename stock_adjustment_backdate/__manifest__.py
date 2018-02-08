@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 {
     'name' : 'Stock Adjustment Backdate',
     'version' : '1.1',
