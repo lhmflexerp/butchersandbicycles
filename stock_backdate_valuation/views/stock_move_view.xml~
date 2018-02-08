@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_move_picking_tree_inherit_backdate" model="ir.ui.view">
+            <field name="name">stock.move.backdate.form</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_picking_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='product_uom']" position="after">
+                    <field name="back_date" invisible="0"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="view_move_picking_form_inherit_backdate" model="ir.ui.view">
+            <field name="name">stock.move.backdate.form</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/group[2]/group" position="inside">
+                    <field name="back_date" invisible="0"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_picking_form_inherit_donebackdate" model="ir.ui.view">
+            <field name="name">stock.picking.backdate.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="scheduled_date" position="after">
+                    <field name="date_done"  readonly="1" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                    <field name="back_date" help="This date will be going to store in back date on stock move and stock picking trasnfer done date." readonly="0" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                </field>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>
