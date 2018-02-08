@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 {
     'name' : 'Stock Adjustment Backdate',
-    'version' : '1.0',
+    'version' : '1.1',
     'category': 'Warehouse',
     'license': 'Other proprietary',
-    'author': 'Alex Lyngsøe',
-    'website': 'www.odoo.com',
+    'author': 'FlexERP',
+    'website': 'www.flexerp.dk',
     'price': 0.0,
     'currency': 'EUR',
     'author': 'Probuse Consulting Service Pvt. Ltd.',
