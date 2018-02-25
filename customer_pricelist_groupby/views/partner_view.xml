@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+
+        <record id="customer_custom_pricelist_form_view" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="product.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='property_product_pricelist']" position="after">
+                        <field name="custom_pricelist_id"  invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="customer_custom_pricelist_search_view" model="ir.ui.view">
+            <field name="name">res.partner.search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <field name="custom_pricelist_id"/>
+                    <filter string="Sale Pricelist"  context="{'group_by' : 'custom_pricelist_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
