@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+
+# Part of Alex Lyngsøe. See LICENSE file for full copyright and licensing details.
+
+{
+    'name': "Invoie Duedate So date",
+    'version': '1.0',
+    'category': 'Sales',
+    'license': 'Other proprietary',
+    'summary': """Invoie Duedate So date""",
+    'description': """
+  Invoie Duedate So date
+    """,
+    'author': 'Alex Lyngsøe',
+    'website': "",
+    'depends': [
+        'sale_management',
+        'sale_id_invoice',
+    ],
+    'data':[
+        'views/payment_term_view.xml',
+    ],
+    'installable' : True,
+    'application' : False,
+    'auto_install' : False,
+}
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
