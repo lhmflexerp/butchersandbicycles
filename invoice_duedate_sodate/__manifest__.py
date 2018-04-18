@@ -29,6 +29,7 @@ currently odoo is considering Invoice date in all places where date due is avail
     'website': "",
     'depends': [
         'sale_order_dates',
+        'sale_id_invoice'
     ],
     'data':[
         'views/payment_term_view.xml',

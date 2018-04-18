@@ -18,12 +18,26 @@ class PaymentTerm(models.Model):
 
         # patch #below part important.
         if self.date_from_so_request_date:
-            ctx = self._context
-            params = ctx.get('params', {})
-            if params.get('model', '') == 'sale.order' and ctx.get('type', '') == 'out_invoice':
-                order = self.env['sale.order'].sudo().browse(ctx['active_id'])
+            ctx = self._context.copy()
+            if ctx.get('custom_sale_id', False):
+                order = self.env['sale.order'].sudo().browse(ctx['custom_sale_id'])
                 if order.requested_date:
                     date_ref = order.requested_date
+
+#             params = ctx.get('params', {})
+#             model = ""
+#             if params.get('model', ''):
+#                 model = params['model']
+#             elif ctx.get('active_model', ''):
+#                 model = ctx['active_model']
+#             
+#             if model == 'sale.order' and ctx.get('type', '') == 'out_invoice':
+#                 active_id = ctx['active_id']
+#                 if params.get('id', False):
+#                     active_id = params['id']
+#                 order = self.env['sale.order'].sudo().browse(active_id)
+#                 if order.requested_date:
+#                     date_ref = order.requested_date
 
         amount = value
         sign = value < 0 and -1 or 1
